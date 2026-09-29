@@ -1,0 +1,8 @@
+[
+  {
+    "question": "What is an embedding?",
+    "ground_truth": "An embedding is a vector representation of text.",
+    "relevant_doc_ids": ["sample.txt"],
+    "difficulty": "easy"
+  }
+]
