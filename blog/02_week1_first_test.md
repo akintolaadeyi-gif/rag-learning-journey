@@ -1,4 +1,4 @@
-# Week 1: My First RAG Retriever Test - It Works!
+# Day 1: My First RAG Retriever Test - It Works!
 
 **Date:** Sept 29, 2026
 
