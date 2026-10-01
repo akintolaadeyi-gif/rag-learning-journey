@@ -34,15 +34,16 @@ blog/                     Learning journal
 
 | Retriever | Precision@3 | Recall@3 | MRR |
 |---|---|---|---|
+| *Best possible on this eval set* | *0.47* | *1.00* | *1.00* |
 | Mock (ignores query) | 0.10 | 0.30 | 0.18 |
-| Embeddings (in-memory) | Day 3 | | |
+| Embeddings (in-memory) | 0.40 | 0.93 | 0.78 |
 | BM25 | Day 4 | | |
 
 ## Progress
 
 - **Day 1:** ✅ Mock retriever and metrics
 - **Day 2:** ✅ Real embeddings (sentence-transformers, in-memory) and Weaviate backend
-- **Day 3:** Real eval set, tests, CI, first honest embedding numbers
+- **Day 3:** ✅ Real eval set, tests, CI, first honest embedding numbers
 - **Day 4:** BM25 keyword baseline and keywords vs embeddings
 - **Day 5:** Choose and wire up the production vector store
 - **Day 6:** Generation with Claude, cited answers
@@ -59,3 +60,4 @@ blog/                     Learning journal
 4. [05_day1_summary.md](./blog/05_day1_summary.md) - Day 1 recap
 5. [06_day2_real_embeddings_plan.md](./blog/06_day2_real_embeddings_plan.md) - Embeddings plan
 6. [07_day2_real_embeddings_results.md](./blog/07_day2_real_embeddings_results.md) - Embeddings results
+7. [08_day3_honest_eval.md](./blog/08_day3_honest_eval.md) - Embeddings vs baseline on a real eval set
