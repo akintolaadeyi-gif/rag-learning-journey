@@ -1,8 +1,12 @@
 [
-  {
-    "question": "What is an embedding?",
-    "ground_truth": "An embedding is a vector representation of text.",
-    "relevant_doc_ids": ["sample.txt"],
-    "difficulty": "easy"
-  }
+  {"question": "What is an embedding?", "relevant_doc_ids": ["embeddings"]},
+  {"question": "Where are embeddings stored and searched?", "relevant_doc_ids": ["vector_db"]},
+  {"question": "How do you measure how similar two vectors are?", "relevant_doc_ids": ["cosine_similarity"]},
+  {"question": "Why split long documents before embedding them?", "relevant_doc_ids": ["chunking", "chunk_overlap"]},
+  {"question": "How does keyword search rank documents?", "relevant_doc_ids": ["bm25"]},
+  {"question": "Can you combine keyword and semantic search?", "relevant_doc_ids": ["hybrid_search", "bm25"]},
+  {"question": "What metric tells me how much noise is in my retrieved results?", "relevant_doc_ids": ["precision_at_k"]},
+  {"question": "How do I know if retrieval missed relevant documents?", "relevant_doc_ids": ["recall_at_k"]},
+  {"question": "What does it mean when the model makes things up?", "relevant_doc_ids": ["hallucination"]},
+  {"question": "How can I evaluate a whole RAG pipeline?", "relevant_doc_ids": ["ragas", "precision_at_k", "recall_at_k"]}
 ]

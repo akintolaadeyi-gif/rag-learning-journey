@@ -48,9 +48,9 @@ It's about showing I can **learn, build, measure, and improve.**
 
 ---
 
-**Week 1 status:** Foundation laid ✅  
-**Week 2:** Real embeddings incoming  
-**Week 3:** Full pipeline  
-**Week 4:** Evaluation & iteration
+**Day 1 status:** Foundation laid ✅  
+**Day 2:** Real embeddings incoming  
+**Day 3:** Full pipeline  
+**Day 4:** Evaluation & iteration
 
 Let's go.

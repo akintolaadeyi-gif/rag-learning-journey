@@ -1,32 +1,30 @@
 """
 MOCK VECTOR DATABASE
+
+Loads the real corpus but ignores the query entirely and returns documents
+in file order with made-up scores. This is deliberately a "no intelligence"
+baseline: any real retriever (BM25 on Day 3, embeddings on Day 4) has to
+beat these numbers to prove it is doing anything.
 """
-from typing import List, Dict
+import json
+from pathlib import Path
+from typing import Dict, List
+
+DEFAULT_CORPUS = Path(__file__).resolve().parent.parent / "data" / "corpus.json"
+
 
 class MockVectorDB:
-    def __init__(self):
-        self.documents = {
-            "sample.txt": {
-                "id": "sample.txt",
-                "text": "An embedding is a vector representation of text.",
-                "metadata": {"source": "sample.txt"},
-                "score": 0.9
-            },
-            "retrieval.txt": {
-                "id": "retrieval.txt",
-                "text": "A vector database stores embeddings and finds similar ones quickly.",
-                "metadata": {"source": "retrieval.txt"},
-                "score": 0.7
-            }
-        }
-    
+    def __init__(self, corpus_path: Path = DEFAULT_CORPUS):
+        with open(corpus_path) as f:
+            self.documents = json.load(f)
+
     def search(self, query: str, k: int = 5) -> List[Dict]:
         results = []
-        for doc_id, doc in self.documents.items():
+        for i, doc in enumerate(self.documents[:k]):
             results.append({
-                'id': doc_id,
-                'text': doc['text'],
-                'metadata': doc['metadata'],
-                'score': doc['score']
+                "id": doc["id"],
+                "text": doc["text"],
+                "metadata": {"source": "corpus.json"},
+                "score": round(1.0 - i * 0.1, 2),  # fake, descending
             })
-        return results[:k]
+        return results

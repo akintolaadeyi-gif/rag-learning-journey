@@ -1,0 +1,16 @@
+[
+  {"id": "embeddings", "text": "An embedding is a list of numbers (a vector) that represents the meaning of a piece of text. Texts with similar meaning end up with vectors that are close together."},
+  {"id": "vector_db", "text": "A vector database stores embeddings and can quickly find the vectors closest to a query vector. Examples include pgvector, Pinecone, Weaviate and Chroma."},
+  {"id": "cosine_similarity", "text": "Cosine similarity measures the angle between two vectors. A score near 1 means the texts point in the same direction in meaning; a score near 0 means they are unrelated."},
+  {"id": "chunking", "text": "Chunking splits long documents into smaller pieces before embedding them. Chunks that are too large dilute meaning; chunks that are too small lose context."},
+  {"id": "chunk_overlap", "text": "Chunk overlap repeats a few sentences between neighbouring chunks so that an idea split across a boundary is not lost."},
+  {"id": "bm25", "text": "BM25 is a keyword ranking algorithm. It scores documents by how often the query words appear, giving more weight to rare words and less to very long documents."},
+  {"id": "hybrid_search", "text": "Hybrid search combines keyword search such as BM25 with embedding search, so exact terms and semantic meaning both count toward the final ranking."},
+  {"id": "precision_at_k", "text": "Precision at k is the share of the top k retrieved documents that are actually relevant. Low precision means the context sent to the model contains noise."},
+  {"id": "recall_at_k", "text": "Recall at k is the share of all relevant documents that appear in the top k results. Low recall means the model never sees information it needed."},
+  {"id": "mrr", "text": "Mean reciprocal rank (MRR) looks at the position of the first relevant result. A relevant document at rank 1 scores 1.0, at rank 2 scores 0.5, at rank 3 scores 0.33."},
+  {"id": "reranking", "text": "Reranking takes the first batch of retrieved documents and reorders them with a slower, more accurate model, usually a cross-encoder, before sending them to the LLM."},
+  {"id": "hallucination", "text": "A hallucination is when a language model states something that is not supported by the retrieved context or by fact. Grounding answers in cited sources reduces it."},
+  {"id": "rag_overview", "text": "Retrieval-augmented generation (RAG) first retrieves relevant documents for a question, then passes them to a language model as context so the answer is based on those sources."},
+  {"id": "ragas", "text": "Ragas is an evaluation library for RAG systems. It measures things like faithfulness to the context, answer relevance and context precision."}
+]

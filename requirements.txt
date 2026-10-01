@@ -1,6 +1,5 @@
-openai
-langchain
-python-dotenv
-pydantic
-pandas
 numpy
+sentence-transformers
+python-dotenv
+weaviate-client>=3,<4
+pytest>=7

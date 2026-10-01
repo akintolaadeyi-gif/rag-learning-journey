@@ -17,14 +17,21 @@ class RetrievalMetrics:
     mrr: float = None
 
 class InstrumentedRetriever:
-    def __init__(self, vector_db, top_k: int = 5):
+    def __init__(self, vector_db, embeddings=None, top_k: int = 5):
         self.vector_db = vector_db
+        self.embeddings = embeddings
         self.top_k = top_k
         self.metrics_log = []
     
     def retrieve(self, query: str, ground_truth_doc_ids: List[str] = None) -> Tuple[List[Dict], RetrievalMetrics]:
         start_time = time.time()
-        results = self.vector_db.search(query, k=self.top_k)
+        
+        if self.embeddings:
+            query_embedding = self.embeddings.embed_text(query)
+            results = self.vector_db.search(query_embedding, k=self.top_k)
+        else:
+            results = self.vector_db.search(query, k=self.top_k)
+        
         retrieval_time = (time.time() - start_time) * 1000
         
         documents = []
