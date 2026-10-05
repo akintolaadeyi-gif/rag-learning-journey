@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 from statistics import mean
 
+from src.bm25_db import BM25DB
 from src.mock_vectordb import MockVectorDB
 from src.retriever import InstrumentedRetriever
 
@@ -43,7 +44,10 @@ def main():
     corpus = load("corpus.json")
     eval_data = load("eval_dataset.json")
 
-    retrievers = {"mock": InstrumentedRetriever(MockVectorDB(), top_k=TOP_K)}
+    retrievers = {
+        "mock": InstrumentedRetriever(MockVectorDB(), top_k=TOP_K),
+        "bm25": InstrumentedRetriever(BM25DB(), top_k=TOP_K),
+    }
 
     from src.indexer import Indexer  # imported here so the mock runs even without the model
     indexer = Indexer()
