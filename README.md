@@ -22,6 +22,7 @@ src/mock_vectordb.py      Query-blind baseline every real retriever must beat
 src/embeddings.py         Local embeddings (sentence-transformers, all-MiniLM-L6-v2)
 src/in_memory_vectordb.py Cosine similarity search with numpy
 src/indexer.py            Embeds documents into the vector store
+src/bm25_db.py            BM25 keyword search, written from scratch
 src/weaviate_db.py        Weaviate Cloud backend
 data/corpus.json          14 short docs on RAG concepts
 data/eval_dataset.json    10 questions with the doc IDs that answer them
@@ -37,14 +38,14 @@ blog/                     Learning journal
 | *Best possible on this eval set* | *0.47* | *1.00* | *1.00* |
 | Mock (ignores query) | 0.10 | 0.30 | 0.18 |
 | Embeddings (in-memory) | 0.40 | 0.93 | 0.78 |
-| BM25 | Day 4 | | |
+| BM25 (from scratch) | 0.33 | 0.78 | 0.72 |
 
 ## Progress
 
 - **Day 1:** ✅ Mock retriever and metrics
 - **Day 2:** ✅ Real embeddings (sentence-transformers, in-memory) and Weaviate backend
 - **Day 3:** ✅ Real eval set, tests, CI, first honest embedding numbers
-- **Day 4:** BM25 keyword baseline and keywords vs embeddings
+- **Day 4:** ✅ BM25 keyword baseline and keywords vs embeddings
 - **Day 5:** Choose and wire up the production vector store
 - **Day 6:** Generation with Claude, cited answers
 - **Day 7:** Hallucination and faithfulness checks
@@ -61,3 +62,4 @@ blog/                     Learning journal
 5. [06_day2_real_embeddings_plan.md](./blog/06_day2_real_embeddings_plan.md) - Embeddings plan
 6. [07_day2_real_embeddings_results.md](./blog/07_day2_real_embeddings_results.md) - Embeddings results
 7. [08_day3_honest_eval.md](./blog/08_day3_honest_eval.md) - Embeddings vs baseline on a real eval set
+8. [09_day4_bm25_vs_embeddings.md](./blog/09_day4_bm25_vs_embeddings.md) - Keywords vs meaning
