@@ -6,6 +6,7 @@ Usage (from the project root):
     python -m scripts.run_eval --verbose   # per-question results
 """
 import json
+import os
 import sys
 from pathlib import Path
 from statistics import mean
@@ -13,6 +14,10 @@ from statistics import mean
 from src.bm25_db import BM25DB
 from src.mock_vectordb import MockVectorDB
 from src.retriever import InstrumentedRetriever
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
 TOP_K = 3
@@ -55,6 +60,16 @@ def main():
     retrievers["embeddings"] = InstrumentedRetriever(
         indexer.vectordb, embeddings=indexer.embeddings, top_k=TOP_K
     )
+
+    if os.getenv("DATABASE_URL"):
+        from src.pgvector_db import PgVectorDB
+        pg_indexer = Indexer(vectordb=PgVectorDB(), embeddings=indexer.embeddings)
+        pg_indexer.index_documents(corpus, verbose=False)
+        retrievers["pgvector"] = InstrumentedRetriever(
+            pg_indexer.vectordb, embeddings=indexer.embeddings, top_k=TOP_K
+        )
+    else:
+        print("\n(pgvector skipped: DATABASE_URL not set)")
 
     results = {name: evaluate(name, r, eval_data, verbose) for name, r in retrievers.items()}
 
