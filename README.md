@@ -12,7 +12,10 @@ python -m scripts.run_eval              # compare retrievers on the eval set
 python -m scripts.run_eval --verbose    # per-question detail
 ```
 
-Weaviate needs `WEAVIATE_URL` and `WEAVIATE_API_KEY` in a local `.env` (never committed).
+Secrets live in a local `.env` (never committed):
+
+- `DATABASE_URL`: Supabase **Session pooler** connection string (enables the pgvector retriever and its tests)
+- `WEAVIATE_URL`, `WEAVIATE_API_KEY`: only for the untested Weaviate backend
 
 ## Structure
 
@@ -23,7 +26,8 @@ src/embeddings.py         Local embeddings (sentence-transformers, all-MiniLM-L6
 src/in_memory_vectordb.py Cosine similarity search with numpy
 src/indexer.py            Embeds documents into the vector store
 src/bm25_db.py            BM25 keyword search, written from scratch
-src/weaviate_db.py        Weaviate Cloud backend
+src/pgvector_db.py        Supabase Postgres + pgvector backend
+src/weaviate_db.py        Weaviate Cloud backend (written, never run)
 data/corpus.json          14 short docs on RAG concepts
 data/eval_dataset.json    10 questions with the doc IDs that answer them
 scripts/run_eval.py       Runs every retriever over the eval set
@@ -39,6 +43,7 @@ blog/                     Learning journal
 | Mock (ignores query) | 0.10 | 0.30 | 0.18 |
 | Embeddings (in-memory) | 0.40 | 0.93 | 0.78 |
 | BM25 (from scratch) | 0.33 | 0.78 | 0.72 |
+| Embeddings (Supabase pgvector) | 0.40 | 0.93 | 0.78 |
 
 ## Progress
 
@@ -46,7 +51,7 @@ blog/                     Learning journal
 - **Day 2:** ✅ Real embeddings (sentence-transformers, in-memory) and Weaviate backend
 - **Day 3:** ✅ Real eval set, tests, CI, first honest embedding numbers
 - **Day 4:** ✅ BM25 keyword baseline and keywords vs embeddings
-- **Day 5:** Choose and wire up the production vector store
+- **Day 5:** ✅ Supabase pgvector as the production vector store
 - **Day 6:** Generation with Claude, cited answers
 - **Day 7:** Hallucination and faithfulness checks
 - **Day 8:** Full evaluation with Ragas
@@ -63,3 +68,4 @@ blog/                     Learning journal
 6. [07_day2_real_embeddings_results.md](./blog/07_day2_real_embeddings_results.md) - Embeddings results
 7. [08_day3_honest_eval.md](./blog/08_day3_honest_eval.md) - Embeddings vs baseline on a real eval set
 8. [09_day4_bm25_vs_embeddings.md](./blog/09_day4_bm25_vs_embeddings.md) - Keywords vs meaning
+9. [10_day5_pgvector.md](./blog/10_day5_pgvector.md) - Moving to a real vector database
