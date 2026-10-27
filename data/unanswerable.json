@@ -1,0 +1,5 @@
+[
+  {"question": "What is the capital of France?", "why": "General knowledge Claude knows, but nothing in the corpus. Tests whether it obeys 'sources only'."},
+  {"question": "How much does Pinecone cost per month?", "why": "Pinecone is mentioned in the corpus, but no price is. A partial match that invites guessing."},
+  {"question": "Which embedding model has the most dimensions?", "why": "On-topic for RAG, but the corpus never compares embedding models."}
+]
