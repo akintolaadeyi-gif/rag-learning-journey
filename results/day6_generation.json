@@ -1,0 +1,296 @@
+[
+  {
+    "question": "What is an embedding?",
+    "answer": "An embedding is a list of numbers (a vector) that represents the meaning of a piece of text [embeddings]. Texts with similar meaning end up with vectors that are close together [embeddings].",
+    "source_ids": [
+      "embeddings",
+      "vector_db",
+      "chunking"
+    ],
+    "cited_ids": [
+      "embeddings"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 271,
+    "output_tokens": 44,
+    "latency_ms": 1754.2028427124023,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "embeddings"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "Where are embeddings stored and searched?",
+    "answer": "Embeddings are stored and searched in a vector database [vector_db]. Vector databases can quickly find vectors that are closest to a query vector, and examples include pgvector, Pinecone, Weaviate, and Chroma [vector_db].",
+    "source_ids": [
+      "embeddings",
+      "vector_db",
+      "hybrid_search"
+    ],
+    "cited_ids": [
+      "vector_db"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 273,
+    "output_tokens": 59,
+    "latency_ms": 1177.7682304382324,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "vector_db"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "How do you measure how similar two vectors are?",
+    "answer": "Cosine similarity is used to measure how similar two vectors are [cosine_similarity]. It measures the angle between two vectors, where a score near 1 means the texts point in the same direction in meaning, and a score near 0 means they are unrelated [cosine_similarity].",
+    "source_ids": [
+      "cosine_similarity",
+      "vector_db",
+      "embeddings"
+    ],
+    "cited_ids": [
+      "cosine_similarity"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 287,
+    "output_tokens": 66,
+    "latency_ms": 1422.3871231079102,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "cosine_similarity"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "Why split long documents before embedding them?",
+    "answer": "Long documents are split before embedding them because chunks that are too large dilute meaning, while chunks that are too small lose context [chunking]. Chunking helps achieve an optimal balance where the pieces are large enough to preserve context but small enough to maintain clear meaning [chunking].",
+    "source_ids": [
+      "chunking",
+      "chunk_overlap",
+      "embeddings"
+    ],
+    "cited_ids": [
+      "chunking"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 259,
+    "output_tokens": 60,
+    "latency_ms": 1918.5800552368164,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "chunking",
+      "chunk_overlap"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "How does keyword search rank documents?",
+    "answer": "BM25, a keyword ranking algorithm, scores documents by how often the query words appear in them, giving more weight to rare words and less weight to very long documents [bm25].",
+    "source_ids": [
+      "hybrid_search",
+      "bm25",
+      "reranking"
+    ],
+    "cited_ids": [
+      "bm25"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 272,
+    "output_tokens": 42,
+    "latency_ms": 1278.4309387207031,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "bm25"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "Can you combine keyword and semantic search?",
+    "answer": "Yes, you can combine keyword and semantic search through hybrid search [hybrid_search]. Hybrid search integrates keyword search methods like BM25 with embedding search, so that both exact term matching and semantic meaning contribute to the final ranking of results [hybrid_search].",
+    "source_ids": [
+      "hybrid_search",
+      "bm25",
+      "rag_overview"
+    ],
+    "cited_ids": [
+      "hybrid_search"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 274,
+    "output_tokens": 58,
+    "latency_ms": 2119.1279888153076,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "hybrid_search",
+      "bm25"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "What metric tells me how much noise is in my retrieved results?",
+    "answer": "Precision at k tells you how much noise is in your retrieved results [precision_at_k]. Low precision means the context sent to the model contains noise, indicating that many of the top k retrieved documents are not actually relevant [precision_at_k].",
+    "source_ids": [
+      "precision_at_k",
+      "mrr",
+      "recall_at_k"
+    ],
+    "cited_ids": [
+      "precision_at_k"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 296,
+    "output_tokens": 56,
+    "latency_ms": 1105.8728694915771,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "precision_at_k"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "How do I know if retrieval missed relevant documents?",
+    "answer": "You can assess whether retrieval missed relevant documents by measuring **recall at k**, which is the share of all relevant documents that appear in the top k results [recall_at_k]. Low recall indicates that the model never sees information it needed [recall_at_k]. If you notice recall is low, you might improve retrieval by using **reranking**, which reorders retrieved documents with a more accurate model before sending them to the LLM [reranking].",
+    "source_ids": [
+      "rag_overview",
+      "recall_at_k",
+      "reranking"
+    ],
+    "cited_ids": [
+      "recall_at_k",
+      "reranking"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 284,
+    "output_tokens": 101,
+    "latency_ms": 1582.5369358062744,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "recall_at_k"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "What does it mean when the model makes things up?",
+    "answer": "When a model makes things up, it's called a hallucination [hallucination]. A hallucination occurs when a language model states something that is not supported by the retrieved context or by fact, and grounding answers in cited sources helps reduce this problem [hallucination].",
+    "source_ids": [
+      "recall_at_k",
+      "precision_at_k",
+      "hallucination"
+    ],
+    "cited_ids": [
+      "hallucination"
+    ],
+    "invalid_citations": [],
+    "refused": false,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 272,
+    "output_tokens": 61,
+    "latency_ms": 1295.1178550720215,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "hallucination"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "How can I evaluate a whole RAG pipeline?",
+    "answer": "I don't know based on the provided documents.\n\nWhile the sources mention that Ragas is an evaluation library for RAG systems that measures faithfulness, answer relevance, and context precision [ragas], they don't provide comprehensive guidance on how to evaluate a whole RAG pipeline end-to-end or what the complete evaluation process would entail.",
+    "source_ids": [
+      "ragas",
+      "rag_overview",
+      "mrr"
+    ],
+    "cited_ids": [
+      "ragas"
+    ],
+    "invalid_citations": [],
+    "refused": true,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 296,
+    "output_tokens": 76,
+    "latency_ms": 1250.2052783966064,
+    "should_answer": true,
+    "relevant_doc_ids": [
+      "ragas",
+      "precision_at_k",
+      "recall_at_k"
+    ],
+    "cites_relevant_doc": true
+  },
+  {
+    "question": "What is the capital of France?",
+    "answer": "I don't know based on the provided documents.\n\nThe sources provided discuss information retrieval metrics (precision at k, recall at k, and cosine similarity) but do not contain any information about the capital of France.",
+    "source_ids": [
+      "precision_at_k",
+      "cosine_similarity",
+      "recall_at_k"
+    ],
+    "cited_ids": [],
+    "invalid_citations": [],
+    "refused": true,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 276,
+    "output_tokens": 48,
+    "latency_ms": 1597.63503074646,
+    "should_answer": false,
+    "relevant_doc_ids": [],
+    "cites_relevant_doc": false
+  },
+  {
+    "question": "How much does Pinecone cost per month?",
+    "answer": "I don't know based on the provided documents.\n\nThe sources mention that Pinecone is a vector database example [vector_db], but they do not contain any information about its pricing or monthly costs.",
+    "source_ids": [
+      "vector_db",
+      "bm25",
+      "hybrid_search"
+    ],
+    "cited_ids": [
+      "vector_db"
+    ],
+    "invalid_citations": [],
+    "refused": true,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 276,
+    "output_tokens": 46,
+    "latency_ms": 1068.9849853515625,
+    "should_answer": false,
+    "relevant_doc_ids": [],
+    "cites_relevant_doc": false
+  },
+  {
+    "question": "Which embedding model has the most dimensions?",
+    "answer": "I don't know based on the provided documents.\n\nThe sources explain what embeddings are and mention vector databases and reranking techniques, but they do not contain information about specific embedding models or their dimensionality.",
+    "source_ids": [
+      "embeddings",
+      "vector_db",
+      "reranking"
+    ],
+    "cited_ids": [],
+    "invalid_citations": [],
+    "refused": true,
+    "model": "claude-haiku-4-5-20251001",
+    "input_tokens": 282,
+    "output_tokens": 47,
+    "latency_ms": 1069.7579383850098,
+    "should_answer": false,
+    "relevant_doc_ids": [],
+    "cites_relevant_doc": false
+  }
+]
