@@ -58,7 +58,7 @@ blog/                     Learning journal
 - **Day 4:** ✅ BM25 keyword baseline and keywords vs embeddings
 - **Day 5:** ✅ Supabase pgvector as the production vector store
 - **Day 6:** ✅ Generation with Claude, cited answers
-- **Day 7:** Hallucination and faithfulness checks (code in, judge run pending)
+- **Day 7:** ✅ Faithfulness checks: word overlap vs a Claude judge
 - **Day 8:** Full evaluation with Ragas
 - **Day 9:** Improve: chunking, hybrid search or reranking
 - **Day 10:** Write-up and hand off to DevMind
@@ -75,3 +75,4 @@ blog/                     Learning journal
 8. [09_day4_bm25_vs_embeddings.md](./blog/09_day4_bm25_vs_embeddings.md) - Keywords vs meaning
 9. [10_day5_pgvector.md](./blog/10_day5_pgvector.md) - Moving to a real vector database
 10. [11_day6_generation.md](./blog/11_day6_generation.md) - Letting Claude answer
+11. [12_day7_faithfulness.md](./blog/12_day7_faithfulness.md) - Is my RAG telling the truth?
