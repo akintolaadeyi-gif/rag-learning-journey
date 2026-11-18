@@ -1,0 +1,282 @@
+[
+  {
+    "question": "What is an embedding?",
+    "answer": "An embedding is a list of numbers (a vector) that represents the meaning of a piece of text [embeddings]. Texts with similar meaning end up with vectors that are close together [embeddings].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "An embedding is a list of numbers (a vector) that represents the meaning of a piece of text [embeddings].",
+        "cited_ids": [
+          "embeddings"
+        ],
+        "overlap": 1.0,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim is exactly stated in the source text as the first sentence of the definition."
+      },
+      {
+        "text": "Texts with similar meaning end up with vectors that are close together [embeddings].",
+        "cited_ids": [
+          "embeddings"
+        ],
+        "overlap": 1.0,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim is directly stated in the source text as the final sentence."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "Where are embeddings stored and searched?",
+    "answer": "Embeddings are stored and searched in a vector database [vector_db]. Vector databases can quickly find vectors that are closest to a query vector, and examples include pgvector, Pinecone, Weaviate, and Chroma [vector_db].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "Embeddings are stored and searched in a vector database [vector_db].",
+        "cited_ids": [
+          "vector_db"
+        ],
+        "overlap": 0.8,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The source explicitly states that a vector database 'stores embeddings and can quickly find the vectors closest to a query vector,' which directly supports the claim that embeddings are stored and searched in a vector database."
+      },
+      {
+        "text": "Vector databases can quickly find vectors that are closest to a query vector, and examples include pgvector, Pinecone, Weaviate, and Chroma [vector_db].",
+        "cited_ids": [
+          "vector_db"
+        ],
+        "overlap": 0.9285714285714286,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim directly restates information from the source text about vector databases' capability to find closest vectors and lists the same four examples provided."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "How do you measure how similar two vectors are?",
+    "answer": "Cosine similarity is used to measure how similar two vectors are [cosine_similarity]. It measures the angle between two vectors, where a score near 1 means the texts point in the same direction in meaning, and a score near 0 means they are unrelated [cosine_similarity].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "Cosine similarity is used to measure how similar two vectors are [cosine_similarity].",
+        "cited_ids": [
+          "cosine_similarity"
+        ],
+        "overlap": 0.6666666666666666,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The source explicitly states that cosine similarity measures the angle between two vectors, and explains that scores near 1 indicate similar meaning while scores near 0 indicate unrelated content, which directly supports that it measures similarity between vectors."
+      },
+      {
+        "text": "It measures the angle between two vectors, where a score near 1 means the texts point in the same direction in meaning, and a score near 0 means they are unrelated [cosine_similarity].",
+        "cited_ids": [
+          "cosine_similarity"
+        ],
+        "overlap": 1.0,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim directly restates the information provided in the source text about what cosine similarity measures and what the scores indicate."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "Why split long documents before embedding them?",
+    "answer": "Long documents are split before embedding them because chunks that are too large dilute meaning, while chunks that are too small lose context [chunking]. Chunking helps achieve an optimal balance where the pieces are large enough to preserve context but small enough to maintain clear meaning [chunking].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "Long documents are split before embedding them because chunks that are too large dilute meaning, while chunks that are too small lose context [chunking].",
+        "cited_ids": [
+          "chunking"
+        ],
+        "overlap": 0.8571428571428571,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim directly restates the information provided in the source: that chunking splits long documents before embedding them, and explains the reason as balancing between chunks that are too large (which dilute meaning) and too small (which lose context)."
+      },
+      {
+        "text": "Chunking helps achieve an optimal balance where the pieces are large enough to preserve context but small enough to maintain clear meaning [chunking].",
+        "cited_ids": [
+          "chunking"
+        ],
+        "overlap": 0.42857142857142855,
+        "overlap_verdict": "unsupported",
+        "judge_verdict": "supported",
+        "judge_reason": "The source directly states that chunking must balance between chunks that are too large (which dilute meaning) and too small (which lose context), which is equivalent to the claim's description of maintaining clear meaning while preserving context."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "How does keyword search rank documents?",
+    "answer": "BM25, a keyword ranking algorithm, scores documents by how often the query words appear in them, giving more weight to rare words and less weight to very long documents [bm25].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "BM25, a keyword ranking algorithm, scores documents by how often the query words appear in them, giving more weight to rare words and less weight to very long documents [bm25].",
+        "cited_ids": [
+          "bm25"
+        ],
+        "overlap": 1.0,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim directly restates the information provided in the source text about BM25's scoring mechanism, keyword weighting, and document length normalization."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "Can you combine keyword and semantic search?",
+    "answer": "Yes, you can combine keyword and semantic search through hybrid search [hybrid_search]. Hybrid search integrates keyword search methods like BM25 with embedding search, so that both exact term matching and semantic meaning contribute to the final ranking of results [hybrid_search].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "Yes, you can combine keyword and semantic search through hybrid search [hybrid_search].",
+        "cited_ids": [
+          "hybrid_search"
+        ],
+        "overlap": 0.8333333333333334,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The source explicitly states that hybrid search combines keyword search with embedding search, directly supporting the claim that you can combine keyword and semantic search through hybrid search."
+      },
+      {
+        "text": "Hybrid search integrates keyword search methods like BM25 with embedding search, so that both exact term matching and semantic meaning contribute to the final ranking of results [hybrid_search].",
+        "cited_ids": [
+          "hybrid_search"
+        ],
+        "overlap": 0.6842105263157895,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim accurately restates the source text, confirming that hybrid search combines BM25 keyword search with embedding search, and that both exact terms and semantic meaning contribute to the final ranking."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "What metric tells me how much noise is in my retrieved results?",
+    "answer": "Precision at k tells you how much noise is in your retrieved results [precision_at_k]. Low precision means the context sent to the model contains noise, indicating that many of the top k retrieved documents are not actually relevant [precision_at_k].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "Precision at k tells you how much noise is in your retrieved results [precision_at_k].",
+        "cited_ids": [
+          "precision_at_k"
+        ],
+        "overlap": 0.5,
+        "overlap_verdict": "unsupported",
+        "judge_verdict": "supported",
+        "judge_reason": "The source directly states that 'Low precision means the context sent to the model contains noise,' which supports the claim that precision at k indicates how much noise is in retrieved results."
+      },
+      {
+        "text": "Low precision means the context sent to the model contains noise, indicating that many of the top k retrieved documents are not actually relevant [precision_at_k].",
+        "cited_ids": [
+          "precision_at_k"
+        ],
+        "overlap": 0.8571428571428571,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The source directly states that low precision means the context sent to the model contains noise, and precision at k is defined as the share of top k retrieved documents that are relevant, so low precision logically indicates many top k documents are not relevant."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "How do I know if retrieval missed relevant documents?",
+    "answer": "You can assess whether retrieval missed relevant documents by measuring **recall at k**, which is the share of all relevant documents that appear in the top k results [recall_at_k]. Low recall indicates that the model never sees information it needed [recall_at_k]. If you notice recall is low, you might improve retrieval by using **reranking**, which reorders retrieved documents with a more accurate model before sending them to the LLM [reranking].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "You can assess whether retrieval missed relevant documents by measuring recall at k, which is the share of all relevant documents that appear in the top k results [recall_at_k].",
+        "cited_ids": [
+          "recall_at_k"
+        ],
+        "overlap": 0.6428571428571429,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim directly restates the definition of recall at k from the source and accurately describes how it can be used to assess whether retrieval missed relevant documents, which is implied by the source's statement that 'low recall means the model never sees information it needed.'"
+      },
+      {
+        "text": "Low recall indicates that the model never sees information it needed [recall_at_k].",
+        "cited_ids": [
+          "recall_at_k"
+        ],
+        "overlap": 0.875,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim is directly stated in the source text: 'Low recall means the model never sees information it needed.'"
+      },
+      {
+        "text": "If you notice recall is low, you might improve retrieval by using reranking, which reorders retrieved documents with a more accurate model before sending them to the LLM [reranking].",
+        "cited_ids": [
+          "reranking"
+        ],
+        "overlap": 0.6153846153846154,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim accurately describes reranking as reordering retrieved documents with a more accurate model before sending them to the LLM, which is exactly what the source states."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "What does it mean when the model makes things up?",
+    "answer": "When a model makes things up, it's called a hallucination [hallucination]. A hallucination occurs when a language model states something that is not supported by the retrieved context or by fact, and grounding answers in cited sources helps reduce this problem [hallucination].",
+    "refused": false,
+    "claims": [
+      {
+        "text": "When a model makes things up, it's called a hallucination [hallucination].",
+        "cited_ids": [
+          "hallucination"
+        ],
+        "overlap": 0.4,
+        "overlap_verdict": "unsupported",
+        "judge_verdict": "supported",
+        "judge_reason": "The source explicitly defines a hallucination as when a language model states something that is not supported by retrieved context or by fact, which is synonymous with 'making things up.'"
+      },
+      {
+        "text": "A hallucination occurs when a language model states something that is not supported by the retrieved context or by fact, and grounding answers in cited sources helps reduce this problem [hallucination].",
+        "cited_ids": [
+          "hallucination"
+        ],
+        "overlap": 0.8125,
+        "overlap_verdict": "supported",
+        "judge_verdict": "supported",
+        "judge_reason": "The claim directly reiterates the definition and solution provided in the source text, stating that hallucinations occur when language models state unsupported things and that grounding answers in cited sources reduces hallucinations."
+      }
+    ],
+    "faithfulness": 1.0
+  },
+  {
+    "question": "How can I evaluate a whole RAG pipeline?",
+    "answer": "I don't know based on the provided documents.\n\nWhile the sources mention that Ragas is an evaluation library for RAG systems that measures faithfulness, answer relevance, and context precision [ragas], they don't provide comprehensive guidance on how to evaluate a whole RAG pipeline end-to-end or what the complete evaluation process would entail.",
+    "refused": true,
+    "claims": [],
+    "faithfulness": null
+  },
+  {
+    "question": "What is the capital of France?",
+    "answer": "I don't know based on the provided documents.\n\nThe sources provided discuss information retrieval metrics (precision at k, recall at k, and cosine similarity) but do not contain any information about the capital of France.",
+    "refused": true,
+    "claims": [],
+    "faithfulness": null
+  },
+  {
+    "question": "How much does Pinecone cost per month?",
+    "answer": "I don't know based on the provided documents.\n\nThe sources mention that Pinecone is a vector database example [vector_db], but they do not contain any information about its pricing or monthly costs.",
+    "refused": true,
+    "claims": [],
+    "faithfulness": null
+  },
+  {
+    "question": "Which embedding model has the most dimensions?",
+    "answer": "I don't know based on the provided documents.\n\nThe sources explain what embeddings are and mention vector databases and reranking techniques, but they do not contain information about specific embedding models or their dimensionality.",
+    "refused": true,
+    "claims": [],
+    "faithfulness": null
+  }
+]
