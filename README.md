@@ -10,6 +10,9 @@ pip install -r requirements.txt
 pytest                                  # unit tests (also run in CI)
 python -m scripts.run_eval              # compare retrievers on the eval set
 python -m scripts.run_eval --verbose    # per-question detail
+python -m scripts.run_generation        # Day 6: answer with Claude (needs ANTHROPIC_API_KEY)
+python -m scripts.run_faithfulness      # Day 7: check each claim against its source
+python -m scripts.run_faithfulness --no-judge   # same, word overlap only (free)
 ```
 
 Secrets live in a local `.env` (never committed):
@@ -28,6 +31,8 @@ src/indexer.py            Embeds documents into the vector store
 src/bm25_db.py            BM25 keyword search, written from scratch
 src/pgvector_db.py        Supabase Postgres + pgvector backend
 src/weaviate_db.py        Weaviate Cloud backend (written, never run)
+src/generator.py          Claude answers from retrieved docs, with citations
+src/faithfulness.py       Checks each claim against its cited source (overlap + Claude judge)
 data/corpus.json          14 short docs on RAG concepts
 data/eval_dataset.json    10 questions with the doc IDs that answer them
 scripts/run_eval.py       Runs every retriever over the eval set
@@ -52,8 +57,8 @@ blog/                     Learning journal
 - **Day 3:** ✅ Real eval set, tests, CI, first honest embedding numbers
 - **Day 4:** ✅ BM25 keyword baseline and keywords vs embeddings
 - **Day 5:** ✅ Supabase pgvector as the production vector store
-- **Day 6:** Generation with Claude, cited answers
-- **Day 7:** Hallucination and faithfulness checks
+- **Day 6:** ✅ Generation with Claude, cited answers
+- **Day 7:** Hallucination and faithfulness checks (code in, judge run pending)
 - **Day 8:** Full evaluation with Ragas
 - **Day 9:** Improve: chunking, hybrid search or reranking
 - **Day 10:** Write-up and hand off to DevMind
@@ -69,3 +74,4 @@ blog/                     Learning journal
 7. [08_day3_honest_eval.md](./blog/08_day3_honest_eval.md) - Embeddings vs baseline on a real eval set
 8. [09_day4_bm25_vs_embeddings.md](./blog/09_day4_bm25_vs_embeddings.md) - Keywords vs meaning
 9. [10_day5_pgvector.md](./blog/10_day5_pgvector.md) - Moving to a real vector database
+10. [11_day6_generation.md](./blog/11_day6_generation.md) - Letting Claude answer
